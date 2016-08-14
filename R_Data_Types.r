@@ -43,12 +43,12 @@ y=1:20
 
 #  Note c is the concatenate operator  
 
-v1<-c(0.5,0.6)  	##  numeric vector of length 2 with values 0.5 and 0.6
-v2<-c(TRUE,FALSE)  	##  logical vector
-v3<-c(T,F)			##	shorthand logical symbols T and F
+v1<-c(0.5,0.6)  	##  	numeric vector of length 2 with values 0.5 and 0.6
+v2<-c(TRUE,FALSE)  	##  	logical vector
+v3<-c(T,F)		##	shorthand logical symbols T and F
 v4<-c("a","b","c")	## 	character vector
-v5<-c(9:29)			## 	integer vector from 9,10,.....29
-v6<-c(1+0i,2+4i)	##  complex vector
+v5<-c(9:29)		## 	integer vector from 9,10,.....29
+v6<-c(1+0i,2+4i)	##	complex vector
 
 ##	Initiate numeric vector with 10 (length) zero elements 
 v7<-vector("numeric",length=10)
@@ -60,11 +60,11 @@ y2<-c(TRUE,2)	##  numeric
 y3<-c("a",TRUE)	##  character 
 
 ##  Explicit Coercion - using the as.*
-x1<-0:3 				##  class(x1) = integer
-x2<-as.numeric(x1)		##  array of double 
+x1<-0:3 		##  class(x1) = integer
+x2<-as.numeric(x1)	##  array of double 
 x3<-as.logical(x1)  	##  FALSE,TRUE,TRUE,TRUE ie. Everything > 0 is TRUE
-x4<-as.character(x1)	## 	"0","1","2","3"
-x5<-as.complex(x1)		## 	Complex vector with 0i for all values
+x4<-as.character(x1)	##  "0","1","2","3"
+x5<-as.complex(x1)	##  Complex vector with 0i for all values
 	
 ##  Nonsensical Coercion
 ##	Warning Message: NAs introduced by coercion 
@@ -74,7 +74,7 @@ a3<-as.logical(a1)		## 	[1] NA NA NA
 a4<-as.complex(a1)		##	[1] NA NA NA
 
 ###############################################
-###############  	Lists      ################
+###############     Lists      ################
 ###############################################
 
 #	Like a vector, but can contain different class elements
@@ -86,7 +86,7 @@ L1<-list(1,"a",TRUE,1+4i)	##  (mumeric,character,logical,complex)
 ##	elements of lists are indexed with double brackets
 
 ###############################################
-###############  	Matrices      #############
+###############     Matrices      #############
 ###############################################
 
 #  2 row and 3 column matrix with NA values
@@ -109,7 +109,7 @@ AttM1<-attributes(m1)
 
 m2<-matrix(1:6,nrow=2,ncol=3)
 	# 	m2 output
-	#		[,1] [,2] [,3]
+	#	[,1] [,2] [,3]
 	#[1,]    1    3    5
 	#[2,]    2    4    6
 
@@ -120,7 +120,7 @@ m3<-1:10
 	
 dim(m3)<-c(2,5)
 	#	new m3 output
-	#		[,1] [,2] [,3] [,4] [,5]
+	#	[,1] [,2] [,3] [,4] [,5]
 	#[1,]    1    3    5    7    9
 	#[2,]    2    4    6    8   10
 
@@ -138,12 +138,12 @@ cb1<-cbind(r1,c1)
 # row bind
 rb1<-rbind(r1,c1)
 	#	output
-	#	   [,1] [,2] [,3]
+	#	[,1] [,2] [,3]
 	#  r1    1    2    3
 	#  c1    10   11   12
 
 ###############################################
-###############  	Factors      ##############
+###############     Factors      ##############
 ###############################################
 
 #  Factors are special labeled vectors (some can be ordered)
@@ -172,8 +172,6 @@ f3<-unclass(f1)
 f4<-factor(f1,levels=c("yes","no"))
 	#	[1] yes yes no  yes no 
 	#	Levels: yes no
-
-	
 	
 ###############################################
 ###############   Missing Data      ###########
@@ -214,7 +212,7 @@ mv6<-is.nan(mv4)
 
 df1<-data.frame(foo=1:4,bar=c(T,T,F,F))
 	#	output
-	#	  foo   bar
+	#     foo   bar
 	#  1   1  TRUE
 	#  2   2  TRUE
 	#  3   3 FALSE
@@ -261,8 +259,8 @@ Mat1<-matrix(1:4,nrow=2,ncol=2)
 dimnames(Mat1)<-list(c("a","b"),c("c","d"))
 
 # Mat1 output
-#  	  c d
-#	  a 1 3
+#     c d
+#   a 1 3
 #   b 2 4
 
 
