@@ -10,4 +10,5 @@
 5.  **R_Textual_Formats.r**         - dput and dump call notes.
 
 Practice Excercises from http://swirlstats.com/
+
 John Hopkins (Coursera) -- install_from_swirl("R Programming")
