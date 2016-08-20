@@ -9,3 +9,4 @@
 4.  **R_Subsetting_Basics.r**       - Subsetting Lists, Data Frames, Nested Lists, Matrices, Partial Matching, Removing NAs.
 5.  **R_Textual_Formats.r**         - dput and dump call notes.
 
+Practice Excercises from http://swirlstats.com/
