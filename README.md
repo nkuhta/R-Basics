@@ -2,8 +2,6 @@
 1.  **R Programming** - Johns Hopkins (Coursera)   
     https://www.coursera.org/learn/r-programming
 
-# Table of Contents
-
 # Working with Data Types
 1.  **R_Data_Types.r**              - Basic data types in the R programming language.
 2.  **R_Vectorized_Operations.r**   - Element wise arithmetic/logic and matrix vectorized operations.
