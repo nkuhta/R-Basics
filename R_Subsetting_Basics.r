@@ -178,17 +178,40 @@ PM1[["a"]]
 
 #     By default [[]] does not do partial matching, but you can make it work with the exact=F command
 PM1[["a",exact=FALSE]]
-#   [1] 1 2 3 4 5 
+    #   [1] 1 2 3 4 5 
 
 ###############################################
 ######  Subsetting Removing NA Values  ########
 ###############################################
 
+MV1 <- c(1,2,NA,4,NA,5)
 
+bad <- is.na(MV1)
+    #bad
+    #[1] FALSE FALSE  TRUE FALSE  TRUE FALSE
+    #!bad
+    #[1]  TRUE  TRUE FALSE  TRUE FALSE  TRUE
 
+#  non bad elements - ! = not
+MV1[!bad]
+    #[1] 1 2 4 5
 
+MV1 <- c(1,2,NA,4,NA,5)
+MV2 <- c('a','b',NA,'d',NA,'f')
 
+good <- complete.cases(MV1,MV2)
+    #[1]  TRUE  TRUE FALSE  TRUE FALSE  TRUE
 
+MV1[good]
+    #[1] 1 2 4 5
+
+MV2[good]
+    #[1] "a" "b" "d" "f"
+
+#   The complete.cases command works for data frames (datatables)
+#   consider data(rows1:6,) contains NA values
+#   good = complete.cases(data) give a logical vector of rows without NAs
+#   dataGood = data[good,][1:6,] gives the first 6 "good" (non NA) rows 
 
 
 
