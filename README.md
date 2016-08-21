@@ -12,4 +12,4 @@
 Practice Excercises from http://swirlstats.com/
 
 John Hopkins (Coursera) -- install_from_swirl("R Programming")  
-Run with library(swirl), then swirl()
+Run with library("swirl"), and then type swirl()
