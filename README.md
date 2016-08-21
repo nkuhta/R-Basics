@@ -11,6 +11,6 @@
 
 # Swirl Stats
 Practice Excercises from http://swirlstats.com/
-
+Install Swirl from the R console --  **install.packages("swirl")**
 John Hopkins (Coursera) -- **install_from_swirl("R Programming")**  
 Run with **library("swirl")**, and then type **swirl()**
