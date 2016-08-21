@@ -2,7 +2,7 @@
 1.  **R Programming** - Johns Hopkins (Coursera)   
     https://www.coursera.org/learn/r-programming
 
-# Working with Data Types
+# Data Types, Subsetting, and Vectorized Operations
 1.  **R_Data_Types.r**              - Basic data types in the R programming language.
 2.  **R_Vectorized_Operations.r**   - Element wise arithmetic/logic and matrix vectorized operations.
 3.  **R_Read.r**                    - Some file and website Read calls in R.  
