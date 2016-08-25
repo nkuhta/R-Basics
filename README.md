@@ -9,6 +9,9 @@
 4.  **R_Subsetting_Basics.r**       - Subsetting Lists, Data Frames, Nested Lists, Matrices, Partial Matching, Removing NAs.
 5.  **R_Textual_Formats.r**         - dput and dump call notes - into the data.r file.
 
+# Control Structures, Loops
+1.  **R_Control_Structures.r**      - if/else, for, and while loops
+
 # Swirl Stats
 Practice Excercises from http://swirlstats.com/  
 Install Swirl from the R console --  **install.packages("swirl")**  
