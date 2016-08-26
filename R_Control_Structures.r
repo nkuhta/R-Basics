@@ -29,6 +29,8 @@
 
 #  y Variable Assignment Example
 
+x <- 1
+
 if(x>3) {
   y <- 10
 } else {
@@ -134,6 +136,62 @@ for(i in seq_len(nrow(mat1))){
 ###############################################
 #############    while loops    ###############
 ###############################################
+
+count <- 0
+  
+while(count<10){
+    print(count)
+    count <- count+1
+}
+    # [1] 0
+    # [1] 1
+    # [1] 2
+    # [1] 3
+    # [1] 4
+    # [1] 5
+    # [1] 6
+    # [1] 7
+    # [1] 8
+    # [1] 9
+
+#  Easy to get into infinite while loops, need to be careful! 
+
+#  Testing multiple condition
+
+z <- 5
+
+while(z>=3  && z<=7){
+  print(c("z=",z))
+  coin <- rbinom(1,1,0.5)   #  0 = Tails, 1 = Heads (Random)
+  print("coin flip")
+  
+  if(coin==1){
+    print("heads")
+  }else{
+    print("tails")
+  }
+  
+  
+  if(coin==1){  ##  Random walk
+        z <- z+1  #  If Heads then add 1 to z
+  } else{
+          z <- z-1  #  If Tails then subtract 1 from z
+  }
+}
+
+    #  Example output for three tails flipped in a row
+    # [1] 5
+    # [1] "coin flip"
+    # [1] "tails"
+    # [1] 4
+    # [1] "coin flip"
+    # [1] "tails"
+    # [1] 3
+    # [1] "coin flip"
+    # [1] "tails"
+
+
+
 
 
 
