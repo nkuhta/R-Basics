@@ -1,7 +1,3 @@
-# R-Basics References
-1.  **R Programming** - Johns Hopkins (Coursera)   
-    https://www.coursera.org/learn/r-programming
-
 # Data Types, Subsetting, and Vectorized Operations
 1.  **R_Data_Types.r**              - Basic data types in the R programming language.
 2.  **R_Vectorized_Operations.r**   - Element wise arithmetic/logic and matrix vectorized operations.
@@ -18,3 +14,7 @@ Practice Excercises from http://swirlstats.com/
 Install Swirl from the R console --  **install.packages("swirl")**  
 John Hopkins (Coursera) -- **install_from_swirl("R Programming")**  
 Run with **library("swirl")**, and then type **swirl()**  
+
+# R-Basics References
+1.  **R Programming** - Johns Hopkins (Coursera)   
+    https://www.coursera.org/learn/r-programming
