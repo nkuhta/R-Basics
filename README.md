@@ -10,7 +10,8 @@
 5.  **R_Textual_Formats.r**         - dput and dump call notes - into the data.r file.
 
 # Control Structures, Loops
-1.  **R_Control_Structures.r**      - if/else, for, and while loops
+1.  **R_Control_Structures.r**      - if/else, for, while, repeat, and next loops
+2.  **R_Functions.r**               - Basic R function formatting
 
 # Swirl Stats
 Practice Excercises from http://swirlstats.com/  
