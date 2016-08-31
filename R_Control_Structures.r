@@ -1,4 +1,4 @@
-##  Vectorized Operations
+##  Control Structures
 ##  Refer to Coursera R Programming Course from John Hopkins
 
 ###############################################
@@ -161,7 +161,8 @@ while(count<10){
 z <- 5
 
 while(z>=3  && z<=7){
-  print(c("z=",z))
+  out1 <- paste(c("z=",z),collapse = " ")
+  print(out1)
   coin <- rbinom(1,1,0.5)   #  0 = Tails, 1 = Heads (Random)
   print("coin flip")
   
@@ -189,6 +190,50 @@ while(z>=3  && z<=7){
     # [1] 3
     # [1] "coin flip"
     # [1] "tails"
+
+
+###############################################
+#############      repeat    ##################
+###############################################
+
+x0 <- 1
+tol <- 1e-8
+
+repeat{
+
+  x1 <- 1.000004
+  
+  #  break exits the loop completely
+  
+  if(abs(x1-x0)<tol){
+    break
+    
+  } else{
+      x0 <- x1
+  }
+  print(c("x0=",x0))
+}
+
+###############################################
+###############     next    ###################
+###############################################
+
+#  next exits a section of the loop 
+
+for(i in 1:100){
+  
+  if(i<=20){
+    ##  Skip the first 20 iterations
+    next
+  }
+  ##  Do somthing else
+}
+
+
+
+
+
+
 
 
 
