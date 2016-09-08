@@ -9,6 +9,7 @@
 1.  **R_Control_Structures.r**      - if/else, for, while, repeat, and next loops
 2.  **R_Functions.r**               - Basic R function formatting
 3.  **R_Scoping_Rules.r**           - Local vs Global variables and functions within functions
+4.  **R_Dates.r**                   - Date/Time formalism in R
 
 # Swirl Stats
 Practice Excercises from http://swirlstats.com/  
