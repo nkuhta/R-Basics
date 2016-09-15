@@ -15,7 +15,7 @@ fileNumTest <- 3   #  test with fewer files
 
 nobs <- vector("numeric",length = fileNumTest)
 
-#  Execute the data parsing globalling (below) so it doesn't get redone every function call
+#  Execute the data parsing globally (below) so it doesn't get redone every function call
 
 #  Note the loops below take time for large fileNum (use FileNumTest for testing)
 
