@@ -1,4 +1,4 @@
-##  Air Pollution Asssignment - use specdata.zip
+##  Air Pollution Asssignment - use rprog_data_specdata.zip
 ##  Refer to Coursera R Programming Course from John Hopkins
 
 ###############################################
