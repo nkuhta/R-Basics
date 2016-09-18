@@ -167,7 +167,109 @@ sapply(x3,mean)
 ##########  Loop Functions - apply   ##########
 ###############################################
 
+#  apply is used to evaluate a function over the margins of an array
+#  often used to apply functions to matrix rows/columns
 
+#  str(apply)
+#  function(x,margin,fun,....)
+#  x is an array
+#  margin is an integer vector indication which margins should be retained
+#  fun is a function being applied
+
+
+#  20 row and 10 column matrix
+mat2 <- matrix(rnorm(200),20,10)
+
+#  calculate the mean of each mat2 column below
+#  keep the second dimension (margin = 2) 
+#  preserve column dimension
+
+apply(mat2,2,mean)
+    # > apply(mat2,2,mean)
+    # [1] -0.23584839  0.08198559
+    # [3]  0.04249788 -0.29753607
+    # [5]  0.15093164  0.25497603
+    # [7] -0.27791766  0.33635249
+    # [9] -0.07298604 -0.66202514
+
+
+#  calculate the sum of each mat2 row
+#  preserve the rows and collapse the columns (margin=1)
+
+apply(mat2,1,sum)
+    # > apply(mat2,1,sum)
+    # [1]  1.1612163 -5.2185268 -1.7923839
+    # [4] -1.1990302  0.3714623 -1.7416536
+    # [7]  3.4907329  1.2145968 -1.0960054
+    # [10] -4.0241692  2.5540929  6.7294694
+    # [13] -1.9892115  3.1852571  1.9436405
+    # [16]  1.4584447 -0.1918675 -2.9921653
+    # [19]  3.9101429  2.0759127
+
+#  20 row by 10 column matrix 
+mat3 <- matrix(rnorm(200),20,10)
+
+#  find the 25% and 75% quantile for all rows
+#  preserve rows(margin=1)
+
+apply(mat3,1,quantile,probs=c(0.25,0.75))
+
+    # > apply(mat3,1,quantile,probs=c(0.25,0.75))
+    #         [,1]        [,2]      [,3]
+    # 25% -0.6202251 -0.09483808 0.1326458
+    # 75%  0.6407977  0.91001101 1.1755463
+    #         [,4]       [,5]       [,6]
+    # 25% -0.5493731 -0.1937111 -1.1281029
+    # 75%  0.7629214  0.7278643  0.3682864
+    #         [,7]       [,8]       [,9]
+    # 25% -0.1424416 -0.6631389 -1.1132967
+    # 75%  0.7547032  0.5313239  0.1697918
+    #         [,10]      [,11]       [,12]
+    # 25% -0.6778005 -0.9491277 -0.02151141
+    # 75%  0.4122747 -0.3836483  0.59114163
+    #         [,13]     [,14]      [,15]
+    # 25% -0.4594067 -0.640499 -0.8985811
+    # 75%  0.5221985  0.474820  0.2525587
+    #         [,16]      [,17]       [,18]
+    # 25% -0.3074792 -0.5783589 -0.84032675
+    # 75%  0.4696802  0.7554075 -0.07797778
+    #         [,19]      [,20]
+    # 25% -0.9830281 -0.4291576
+    # 75%  0.2047099  0.3804082
+
+#  3D array
+a1 <- array(rnorm(2*2*10),c(2,2,10))
+
+#  average over the third dimension
+apply(a1,c(1,2),mean)
+    # > apply(a1,c(1,2),mean)
+    #         [,1]       [,2]
+    # [1,] 0.1934985 -0.4210859
+    # [2,] 0.7498806 -0.2764574
+
+rowMeans(a1,dims = 2)
+    # > rowMeans(a1,dims = 2)
+    #         [,1]       [,2]
+    # [1,] 0.1934985 -0.4210859
+    # [2,] 0.7498806 -0.2764574
+
+###############################################
+#######  Optimized Col/Row Sums/Means   #######
+###############################################
+
+#  Below are the optimized matrix operations
+
+rowSums(mat2)
+rowMeans(mat2)
+colSums(mat2)
+colMeans(mat2)
+
+#  Speed increase only noticed on large matrices.  
+
+
+###############################################
+#########  Loop Functions - mapply   ##########
+###############################################
 
 
 
