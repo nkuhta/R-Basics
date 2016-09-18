@@ -11,6 +11,9 @@
 3.  **R_Scoping_Rules.r**           - Local vs Global variables and functions within functions
 4.  **R_Dates.r**                   - Date/Time formalism in R
 
+# Loop Functions and Debugging
+1.  **R_Loop_Functions.R**      - lapply and sapply
+
 # Example Problems
 1.  **R_Air_Pollution.r**      - import, clean, and analyze sulfate/nitrate air pollution data
 
