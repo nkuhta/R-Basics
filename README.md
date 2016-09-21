@@ -12,7 +12,7 @@
 4.  **R_Dates.r**                   - Date/Time formalism in R
 
 # Loop Functions and Debugging
-1.  **R_Loop_Functions.R**      - lapply, sapply, apply
+1.  **R_Loop_Functions.R**      - lapply, sapply, apply, mapply, tapply, and split
 
 # Example Problems
 1.  **R_Air_Pollution.r**      - import, clean, and analyze sulfate/nitrate air pollution data
