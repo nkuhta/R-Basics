@@ -271,6 +271,299 @@ colMeans(mat2)
 #########  Loop Functions - mapply   ##########
 ###############################################
 
+#  mapply(function,funVar1,funVar2,funVar3.....)
+
+#  mapply is a multivariate apply of sorts which applies functions in parallel over a set of arguments
+
+list1 <- list(rep(1,4),rep(2,3),rep(3,2),rep(4,1))
+
+    # > list1
+    # [[1]]
+    # [1] 1 1 1 1
+    # 
+    # [[2]]
+    # [1] 2 2 2
+    # 
+    # [[3]]
+    # [1] 3 3
+    # 
+    # [[4]]
+    # [1] 4
+
+#  This repeats 1 through 4 with repitition values of 4 through 1 (same as above with less typing)
+mapply(rep,1:4,4:1)
+
+    # > mapply(rep,1:4,4:1)
+    # [[1]]
+    # [1] 1 1 1 1
+    # 
+    # [[2]]
+    # [1] 2 2 2
+    # 
+    # [[3]]
+    # [1] 3 3
+    # 
+    # [[4]]
+    # [1] 4
+
+#  Vectorizing a function
+
+noise <- function(n,mean,sd){
+  rnorm(n,mean,sd)
+}
+
+    # > noise(5,1,2)
+    # [1] -0.5233484  0.4071114  0.1403199  1.1146798  1.2155810
+
+noise(1:5,1:5,2)    #  This doesn't work to evaluate 5 different n and mean values
+    # > noise(1:5,1:5,2)
+    # [1] 1.807665 3.694665 4.342261 2.080330 4.335575
+
+#  use mapply to apply noise for different n and mean values
+
+mapply(noise,1:5,1:5,2)
+
+    # > mapply(noise,1:5,1:5,2)
+    # [[1]]
+    # [1] 2.974097
+    # 
+    # [[2]]
+    # [1] 0.7125130 0.6755669
+    # 
+    # [[3]]
+    # [1] 6.704663 6.277056 2.558085
+    # 
+    # [[4]]
+    # [1] 3.653960 5.503145 5.103054 6.114904
+    # 
+    # [[5]]
+    # [1] 6.193651 5.779878 2.343682 8.463079 6.592264
+
+
+###############################################
+#########  Loop Functions - tapply   ##########
+###############################################
+
+#  tapply is used to apply a function over the subsets of a vector
+
+#  tapply(vector,index,function,...)
+
+vec1 <- c(rnorm(10),runif(10),rnorm(10,1))
+
+fac <- gl(3,10)
+
+    # > fac
+    # [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3
+    # [30] 3
+    # Levels: 1 2 3
+
+#  Calculate the mean of all three fac groups 
+tapply(vec1,fac,mean)
+
+    # > tapply(vec1,fac,mean)
+    # 1           2           3 
+    # -0.08577949  0.47774700  1.27636466 
+
+tapply(vec1,fac,mean,simplify = F)
+    # > tapply(vec1,fac,mean,simplify = F)
+    # $`1`
+    # [1] -0.08577949
+    # 
+    # $`2`
+    # [1] 0.477747
+    # 
+    # $`3`
+    # [1] 1.276365
+
+#  Calculate the range for all three fac groups 
+tapply(vec1,fac,range)
+
+    # > tapply(vec1,fac,range)
+    # $`1`
+    # [1] -1.416011  1.322816
+    # 
+    # $`2`
+    # [1] 0.01465886 0.94086473
+    # 
+    # $`3`
+    # [1] -0.1650597  3.1933749
+
+
+###############################################
+#########  Loop Functions - split   ###########
+###############################################
+
+#  takes a vecotr or other object and splits it into groups determined by a factor
+
+s1 <- c(rnorm(10),runif(10),rnorm(10,1))
+    # > s1
+    # [1] -0.16201171  0.72274101 -1.54178564  0.97181485
+    # [5]  1.10118954  1.42619912 -1.38375414  0.02334852
+    # [9] -0.27396882 -0.41370668  0.71787436  0.66934959
+    # [13]  0.95637725  0.87766709  0.23320849  0.17743706
+    # [17]  0.03335671  0.89703810  0.48664717  0.53479945
+    # [21]  0.83043081  2.02515349  1.63715103  2.17970831
+    # [25]  2.33325907  2.51791315  0.66429470  0.52935607
+    # [29]  1.71571596  0.65282190
+
+f <- gl(3,10)
+    # > f
+    # [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3
+    # [30] 3
+    # Levels: 1 2 3
+
+split(s1,f)
+    #> split(s1,f)
+    # $`1`
+    # [1]  0.98226297 -2.33396211  0.04265917 -0.36871830
+    # [5] -0.71700138 -0.49123241 -0.46410325 -0.24526421
+    # [9] -0.46837159  0.44391457
+    # 
+    # $`2`
+    # [1] 0.62514051 0.70269055 0.99223478 0.70438839 0.39650570
+    # [6] 0.26548087 0.96654424 0.73818679 0.08111033 0.05944235
+    # 
+    # $`3`
+    # [1]  1.7404766  0.6736383  0.1566843 -1.0837754  1.4610655
+    # [6]  0.7121365 -0.5673216  1.3172378  3.1959661  0.1041254
+
+#  It's common to split then use lapply (see means of each f group below)
+
+lapply(split(s1,f),mean)
+    # > lapply(split(s1,f),mean)
+    # $`1`
+    # [1] -0.3619817
+    # 
+    # $`2`
+    # [1] 0.5531725
+    # 
+    # $`3`
+    # [1] 0.7710233
+
+#  Splitting a Data Frame
+
+library(datasets)
+    # > head(airquality)
+    # Ozone Solar.R Wind Temp Month Day
+    # 1    41     190  7.4   67     5   1
+    # 2    36     118  8.0   72     5   2
+    # 3    12     149 12.6   74     5   3
+    # 4    18     313 11.5   62     5   4
+    # 5    NA      NA 14.3   56     5   5
+    # 6    28      NA 14.9   66     5   6
+
+#  how to calculate mean values for every month?  
+
+#  s2 = split airquality data by month
+
+s2 <- split(airquality,airquality$Month)
+
+lapply(s2,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")]))
+    # $`5`
+    # Ozone  Solar.R     Wind 
+    # NA       NA 11.62258 
+    # 
+    # $`6`
+    # Ozone   Solar.R      Wind 
+    # NA 190.16667  10.26667 
+    # 
+    # $`7`
+    # Ozone    Solar.R       Wind 
+    # NA 216.483871   8.941935 
+    # 
+    # $`8`
+    # Ozone  Solar.R     Wind 
+    # NA       NA 8.793548 
+    # 
+    # $`9`
+    # Ozone  Solar.R     Wind 
+    # NA 167.4333  10.1800
+
+sapply(s2,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")]))
+    #               5         6          7        8        9
+    # Ozone         NA        NA         NA       NA       NA
+    # Solar.R       NA 190.16667 216.483871       NA 167.4333
+    # Wind    11.62258  10.26667   8.941935 8.793548  10.1800
+
+#  now remove NA values and calculate the means
+sapply(s2,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")],na.rm = T))
+    #             5         6          7          8         9
+    # Ozone    23.61538  29.44444  59.115385  59.961538  31.44828
+    # Solar.R 181.29630 190.16667 216.483871 171.857143 167.43333
+    # Wind     11.62258  10.26667   8.941935   8.793548  10.18000
+
+###############################################
+########  Splitting Multiple Levels   #########
+###############################################
+
+xx <- rnorm(10)
+f1 <- gl(2,5)
+    # [1] 1 1 1 1 1 2 2 2 2 2
+    # Levels: 1 2
+f2 <- gl(5,2)
+    # [1] 1 1 2 2 3 3 4 4 5 5
+    # Levels: 1 2 3 4 5
+
+#  combine 
+interaction(f1,f2)
+    # [1] 1.1 1.1 1.2 1.2 1.3 2.3 2.4 2.4 2.5 2.5
+    # Levels: 1.1 2.1 1.2 2.2 1.3 2.3 1.4 2.4 1.5 2.5
+
+#  now split xx into more than one level
+
+split(xx,list(f1,f2))
+    # $`1.1`
+    # [1]  0.7939899 -0.7320681
+    # 
+    # $`2.1`
+    # numeric(0)
+    # 
+    # $`1.2`
+    # [1] -1.21568522  0.04265627
+    # 
+    # $`2.2`
+    # numeric(0)
+    # 
+    # $`1.3`
+    # [1] 0.4826069
+    # 
+    # $`2.3`
+    # [1] 0.7667554
+    # 
+    # $`1.4`
+    # numeric(0)
+    # 
+    # $`2.4`
+    # [1] 0.2637543 1.1883782
+    # 
+    # $`1.5`
+    # numeric(0)
+    # 
+    # $`2.5`
+    # [1]  1.3960042 -0.2237613
+
+#  get rid of the empty levels
+
+split(xx,list(f1,f2),drop=T)
+    # $`1.1`
+    # [1]  0.7939899 -0.7320681
+    # 
+    # $`1.2`
+    # [1] -1.21568522  0.04265627
+    # 
+    # $`1.3`
+    # [1] 0.4826069
+    # 
+    # $`2.3`
+    # [1] 0.7667554
+    # 
+    # $`2.4`
+    # [1] 0.2637543 1.1883782
+    # 
+    # $`2.5`
+    # [1]  1.3960042 -0.2237613
+
+
 
 
 
