@@ -13,7 +13,11 @@
 
 # Loop Functions and Debugging
 1.  **R_Loop_Functions.R**      - lapply, sapply, apply, mapply, tapply, and split
-2.  **R_Debugging_Tools.r**     - debugging tools - traceback, debug, and recover
+2.  **R_Debugging_Tools.r**     - Debugging tools - traceback, debug, and recover
+
+# Simulation and Profiling
+1.  **R_str_function.r**      - Useful str and summary statements find what is in an object
+2.  **R_Simulation.r**     - distributions, random numbers, set.seed, linear and poisson models
 
 # Example Problems
 1.  **R_Air_Pollution.r**      - import, clean, and analyze sulfate/nitrate air pollution data
