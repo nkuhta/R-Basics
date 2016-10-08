@@ -18,6 +18,7 @@
 # Simulation and Profiling
 1.  **R_str_function.r**      - Useful str and summary statements find what is in an object
 2.  **R_Simulation.r**     - distributions, random numbers, set.seed, linear and poisson models
+3.  **R_Profiler.r**     - system.time, Rprof, summaryRprof
 
 # Example Problems
 1.  **R_Air_Pollution.r**      - import, clean, and analyze sulfate/nitrate air pollution data
