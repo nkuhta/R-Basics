@@ -22,6 +22,7 @@
 
 # Example Problems
 1.  **R_Air_Pollution.r**      - import, clean, and analyze sulfate/nitrate air pollution data
+2.  **R_Hospital_Quality.r**      - Find the best Hospitals in a given data set
 
 # Swirl Stats
 Practice Excercises from http://swirlstats.com/  
